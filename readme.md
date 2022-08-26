@@ -75,6 +75,9 @@ Each client runs the same compose base code with their own theming (mostly varyi
    <img src="https://github.com/CoronelGlober/demo-compose-multiplatform/blob/master/artwork/desktop.png" width=400 />
 
 The first time you go into the chat or drawing screen you will need to define the server address and port, after they have been set you will be able to move back and forward without doing it again 
+
+## Running via IntelliJ IDEA 2022.1.4
+
 ## Credits
 - Jetbrains!
 - Google
