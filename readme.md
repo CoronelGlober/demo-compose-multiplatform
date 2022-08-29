@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/69470506/186998390-50d0ecf3-398f-4399-
 
 
 
-### Using the same user interface (UI) form android on all principal platforms
+### Using the same compose user interface (UI) from android on all principal platforms 🎊 🎉
 
 ## App Features
 This is a single UI codebase for an application that runs on all principal platforms, containing 3 screens:
