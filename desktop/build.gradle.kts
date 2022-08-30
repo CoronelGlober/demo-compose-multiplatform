@@ -30,7 +30,7 @@ kotlin {
 compose.desktop {
     application {
         mainClass = "MainKt"
-        javaHome = "/Users/d.coronel/Downloads/jdk-18.0.1.jdk/Contents/Home" // TODO: REPLACE IT ON EACH PC
+        //javaHome = "/Users/d.coronel/Downloads/jdk-18.0.1.jdk/Contents/Home" // TODO: REPLACE IT ON EACH PC
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "desktopApp"
