@@ -1,6 +1,5 @@
 import Constants.KotlinVersion
 import Constants.KtorVersion
-import org.jetbrains.compose.compose
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -37,18 +36,7 @@ kotlin {
         }
     }
 
-    iosX64("uikitX64") {
-        binaries {
-            executable() {
-                freeCompilerArgs += listOf(
-                    "-linker-option", "-framework", "-linker-option", "Metal",
-                    "-linker-option", "-framework", "-linker-option", "CoreText",
-                    "-linker-option", "-framework", "-linker-option", "CoreGraphics"
-                )
-            }
-        }
-    }
-    iosArm64("uikitArm64") {
+    ios("uikit") {
         binaries {
             executable() {
                 freeCompilerArgs += listOf(
@@ -82,8 +70,8 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                api("androidx.appcompat:appcompat:1.4.1")
-                api("androidx.core:core-ktx:$KotlinVersion")
+                api("androidx.appcompat:appcompat:1.5.1")
+                api("androidx.core:core-ktx:1.8.0")
                 implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1")
                 implementation("io.ktor:ktor-client-cio:$KtorVersion")
             }
@@ -96,36 +84,39 @@ kotlin {
             }
         }
 
-        val uikitX64Main by getting {
+        val uikitMain by getting {
             dependsOn(commonMain)
             dependencies {
                 implementation("io.ktor:ktor-client-darwin:$KtorVersion")
             }
         }
-
-        val uikitArm64Main by getting {
-            dependsOn(uikitX64Main)
-        }
     }
+}
+
+compose {
+    kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.3.2")
 }
 
 repositories {
     gradlePluginPortal()
     mavenCentral()
+    google()
+    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
 }
 
 android {
-    compileSdk = 31
+    compileSdk = 33
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/commonMain/resources")
     defaultConfig {
         minSdk = 24
-        targetSdk = 31
+        targetSdk = 33
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    namespace = "com.david.remote.server.common"
 }
 
 
