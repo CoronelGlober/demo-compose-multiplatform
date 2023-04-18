@@ -93,10 +93,6 @@ kotlin {
     }
 }
 
-compose {
-    kotlinCompilerPlugin.set("androidx.compose.compiler:compiler:1.3.2")
-}
-
 repositories {
     gradlePluginPortal()
     mavenCentral()
