@@ -62,9 +62,9 @@ Each client runs the same compose base code with their own theming (mostly varyi
    
    <img src="https://github.com/CoronelGlober/demo-compose-multiplatform/blob/master/artwork/android.png" width=400 />
 
-3) Launching iOS app (works only on Mac computers, requires XCode and XCode command line tools installed and configured):
+3) Launching iOS app:
 
-   - from the tasks panel on IntelliJ
+   - Simply run the iOS Client XCode project
    
    <img src="https://github.com/CoronelGlober/demo-compose-multiplatform/blob/master/artwork/ios.png" width=400 />
 
