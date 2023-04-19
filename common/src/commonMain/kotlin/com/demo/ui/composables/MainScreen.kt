@@ -42,7 +42,8 @@ typealias MessageReceivedCallback = ((ChatMessage.OtherMessage) -> Unit)
  */
 @Composable
 fun MainScreen(vm: MainScreenViewModel = MainScreenViewModel(), messageReceived: MessageReceivedCallback? = null) {
-
+    ControlledExplosion()
+    /*
     val screenState by vm.flowableState.collectAsState()
     CommonTheme {
         val topBarColor by animateColorAsState(
@@ -97,6 +98,7 @@ fun MainScreen(vm: MainScreenViewModel = MainScreenViewModel(), messageReceived:
             }
         }
     }
+     */
 }
 
 @Composable
