@@ -1,3 +1,5 @@
+package com.demo
+
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -29,7 +31,7 @@ import com.demo.domain.screens.optionsscreen.MainScreenState
 import com.demo.domain.screens.optionsscreen.MainScreenViewModel
 import com.demo.expected.getPlatformName
 import com.demo.ui.composables.MainScreen
-import com.demo.ui.themes.CommonTheme
+import com.demo.ui.DesktopTheme
 import com.demo.ui.themes.LocalCommonColors
 import com.demo.ui.utils.chat.Close_face
 import com.demo.ui.utils.chat.Floating_screen
@@ -60,7 +62,7 @@ fun main() = application {
                 DesktopMenu(mutableStateOf(isShowingTools), iconPainter, ::exitApplication)
             }
 
-            CommonTheme {
+            DesktopTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize().padding(5.dp).shadow(3.dp, RoundedCornerShape(20.dp)),
                     shape = RoundedCornerShape(20.dp) //window has round corners now

@@ -11,4 +11,4 @@ pluginManagement {
 }
 rootProject.name = "DemoComposeMulti"
 
-include(":android", "iOS", ":desktop", ":server", ":common")
+include(":android", ":desktop", ":server", ":common")

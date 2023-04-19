@@ -11,7 +11,7 @@ val LocalCommonColors = staticCompositionLocalOf<CommonColors> { error("No Alloy
 
 val LocalRippleTheme = staticCompositionLocalOf<RippleTheme> { error("No AlloyColors provided") }
 
-object NoRippleTheme : RippleTheme {
+internal object NoRippleTheme : RippleTheme {
     @Composable
     override fun defaultColor() = Color.Unspecified
 

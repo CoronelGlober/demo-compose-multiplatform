@@ -1,4 +1,4 @@
-package com.demo.ui.themes
+package com.demo.ui
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Shapes
@@ -7,25 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import com.demo.expected.getAdditionalCompositions
 import com.demo.expected.getPlatformColors
-
-
-internal object CommonTheme {
-    val colors: CommonColors
-        @Composable
-        get() = LocalCommonColors.current
-
-    val typography: Typography
-        @Composable
-        get() = MaterialTheme.typography
-
-    val shapes: Shapes
-        @Composable
-        get() = MaterialTheme.shapes
-}
-
+import com.demo.ui.themes.LocalCommonColors
+import com.demo.ui.themes.getParsedPlatformColors
 
 @Composable
-internal fun CommonTheme(content: @Composable () -> Unit) {
+internal fun DesktopTheme(content: @Composable () -> Unit) {
 
     val colors = getPlatformColors()
     CompositionLocalProvider(LocalCommonColors provides colors) {

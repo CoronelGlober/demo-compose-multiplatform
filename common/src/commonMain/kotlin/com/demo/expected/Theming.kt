@@ -9,7 +9,7 @@ import com.demo.ui.themes.CommonColors
 
 expect fun getPlatformColors(): CommonColors
 
-expect fun getAdditionalCompositions(): List<ProvidedValue<*>>
+internal expect fun getAdditionalCompositions(): List<ProvidedValue<*>>
 
 @Composable
 expect fun PlatformButton(

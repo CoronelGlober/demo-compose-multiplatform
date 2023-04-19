@@ -8,6 +8,7 @@ plugins {
     id("org.jetbrains.compose")
     id("com.android.library")
     kotlin("plugin.serialization")
+    kotlin("native.cocoapods")
 }
 
 group = "com.david.remote.server"
@@ -36,6 +37,7 @@ kotlin {
         }
     }
 
+    iosSimulatorArm64("uikit")
     ios("uikit") {
         binaries {
             executable() {
@@ -50,6 +52,20 @@ kotlin {
         }
     }
 
+    cocoapods {
+        version = "1.0.0"
+        summary = "Some description for the Common Module"
+        homepage = "Link to the Common Module homepage"
+        ios.deploymentTarget = "14.1"
+        podfile = project.file("../iOS Client/Podfile")
+        framework {
+            baseName = "common"
+            isStatic = true
+            binaryOption("bundleId", "common")
+        }
+        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+    }
+
     sourceSets {
         val commonMain by getting {
             resources.srcDirs("resources")
@@ -58,6 +74,8 @@ kotlin {
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
+                @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
+                implementation(compose.components.resources)
                 implementation("org.jetbrains.kotlin:kotlin-stdlib:$KotlinVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
                 implementation("io.ktor:ktor-client-core:$KtorVersion")
